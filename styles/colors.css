@@ -1,0 +1,9 @@
+:root {
+    --options-bg: #ffc0cb; /* pink */
+
+    --preview-bg: #e0ffff; /*lightcyan*/;
+
+    --timeline-bg: #90ee90; /*lightgreen*/;
+    --timeline-item-bg: #808080; /*gray*/;
+    --timeline-placeholder: #00ff00; /*lime*/;
+}

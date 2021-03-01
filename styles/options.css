@@ -1,0 +1,9 @@
+#options {
+    position: relative;
+}
+
+#addImage {
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
+}
