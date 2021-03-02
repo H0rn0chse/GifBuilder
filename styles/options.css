@@ -7,3 +7,11 @@
     bottom: 2em;
     left: 2em;
 }
+
+/*color-picker override*/
+.color-picker-alpha-input.range-input-control {
+    display: none;
+}
+.color-picker {
+    min-height: 266px;
+}

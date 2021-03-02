@@ -1,4 +1,5 @@
 import { Deferred } from "./Deferred.js";
+import { TimelineManager } from "./TimelineManager.js";
 
 let guid = 0;
 
@@ -40,6 +41,13 @@ export class Item {
         name.innerText = this.name;
         this.contentRef.appendChild(name);
 
+        const deleteButton = document.createElement("div");
+        deleteButton.classList.add("itemDelete");
+        deleteButton.addEventListener("click", evt => {
+            TimelineManager.removeItem(this);
+        });
+        this.contentRef.appendChild(deleteButton);
+
         this.domRef.appendChild(this.contentRef);
     }
 
@@ -59,10 +67,12 @@ export class Item {
         this.canvasRef = document.createElement("canvas");
         this.canvasRef.width = this.imageRef.naturalWidth;
         this.canvasRef.height = this.imageRef.naturalHeight;
-
         this.ctx = this.canvasRef.getContext("2d");
+
+        /*
         this.ctx.fillStyle = "#F0F";
         this.ctx.fillRect(0, 0, this.canvasRef.width, this.canvasRef.height);
+        */
         this.ctx.drawImage(this.imageRef, 0, 0);
 
         /*replaceColor(this.ctx, this.canvasRef.width, this.canvasRef.height, [0,0,0], [0,0,255]);
@@ -70,7 +80,6 @@ export class Item {
         replaceColor(this.ctx, this.canvasRef.width, this.canvasRef.height, [0,0,255], [255,0,255]);*/
         //replaceColor(ctx, [255,0,255], [255,0,0]);
 
-        document.querySelector("#options").appendChild(this.canvasRef);
         this.loaded.resolve();
     }
 }

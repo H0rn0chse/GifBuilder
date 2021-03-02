@@ -1,0 +1,12 @@
+#preview {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#previewInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

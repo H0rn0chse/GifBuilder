@@ -21,6 +21,10 @@ class _TimelineManager {
             }
         });
 
+        this.grid.on('layoutEnd', item => {
+            PreviewManager.render();
+        });
+
         this.container.addEventListener("wheel", evt => {
             if (!evt.deltaY) {
                 return;
@@ -33,19 +37,24 @@ class _TimelineManager {
 
     addItem (data) {
         const item = new Item(data.content, data.name);
-        this.items.set(item.id, item);
+        const muuriItem = this.grid.add(item.domRef, {})[0];
+        this.items.set(muuriItem, item);
+        return item.loaded.promise;
+    }
 
+    removeItem (item) {
+        const muuriItem = this.grid.getItem(item.domRef);
+        if (muuriItem) {
+            this.items.delete(muuriItem);
+            this.grid.remove([muuriItem], { removeElements: true });
+        }
+    }
 
-
-        item.loaded.promise.then(() => {
-            const frames = Array.from(this.items.values())
-                .filter(item => item.loaded.isFulfilled)
-                .map(item => item.ctx);
-
-            PreviewManager.render(frames);
-        })
-
-        this.grid.add(item.domRef, {});
+    getItems () {
+        return this.grid.getItems()
+            .map(muuriItem => this.items.get(muuriItem))
+            .filter(item => item.loaded.isFulfilled)
+            .map(item => item.ctx);
     }
 }
 

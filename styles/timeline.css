@@ -25,6 +25,17 @@
     z-index: 1;
 }
 
+.itemDelete {
+    position: absolute;
+    text-align: center;
+    top: -1em;
+    right: -1em;
+    width: 2em;
+    height: 2em;
+    background-color: red;
+    border-radius: 50%;
+}
+
 .item-content {
     position: relative;
     width: 100%;

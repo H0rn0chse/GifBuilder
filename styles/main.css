@@ -11,6 +11,10 @@ body {
     overflow: hidden;
 }
 
+#hidden {
+    display: none;
+}
+
 #content {
     width: 100vw;
     height: 100vh;
@@ -35,4 +39,20 @@ body {
 #timeline {
     grid-area: timeline;
     background-color: var(--timeline-bg);
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.endContent {
+    flex-grow: 1;
+    justify-content: flex-end;
 }

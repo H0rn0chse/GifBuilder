@@ -8,11 +8,9 @@
     <!-- Dependencies -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
     <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>-->
-    <!--<script src="/gif.worker.js"></script>-->
+    <link rel="stylesheet" href="libs/color-picker.min.css"/>
+    <script type="text/javascript" src="libs/color-picker.min.js"></script>
     <script src="libs/gif.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.js"></script>-->
     <!-- Project -->
     <link rel="stylesheet" href="styles/main.css">
     <script type="module">
@@ -24,9 +22,19 @@
     <div id="content">
         <div id="options">
             <button id="addImage">Add Images</button>
+            <button id="downloadGif">Download</button>
+            <div id="colorpicker"></div>
         </div>
         <div id="preview">
-            <img id="previewImage"></img>
+            <img id="previewImage" src="/assets/initial.png"></img>
+            <div id="previewInfo" class="flexColumn">
+                <div>Warnings:</div>
+                <div class="flexRow">
+                    <div>Estimated size:&nbsp</div>
+                    <div id="estimatedSize">0</div>
+                    <div>&nbspKB</div>
+                </div>
+            </div>
         </div>
         <div id="timeline">
             <div id="grid"></div>
