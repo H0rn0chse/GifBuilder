@@ -2,6 +2,32 @@
     position: relative;
 }
 
+.optionGroup {
+    margin: 2em;
+}
+
+.optionGroup * {
+    margin: 0.2em;
+}
+
+.optionGroup input {
+    width: 7em;
+}
+
+.optionGroup input[type="range"] {
+    width: 15em;
+}
+
+.optionGroup select {
+    width: 17em;
+}
+
+#addImage {
+    position: absolute;
+    bottom: 0.5em;
+    left: 0.5em;
+}
+
 #colorPicker {
     position: absolute;
     bottom: 1em;

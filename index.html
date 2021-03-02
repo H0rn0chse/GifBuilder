@@ -21,31 +21,43 @@
 <body>
     <div id="content">
         <div id="options" class="flexColumn">
-
-            <label>Width: <input type="number" placeholder="192">px</label>
-            <label>Height: <input type="number" placeholder="192">px</label>
-            <label>Animation Speed / Frames per Second: <input type="number" placeholder="500"></label>
-            <label>
-                <input type="checkbox" checked>
-                <span class="checkable">Keep Dimensions</span>
-            </label>
-            <label>
-                Quality:
-                <input type="range" min="1" step="1" max="10" value="10">
-            </label>
-            <label>
-                Dithering:
-                <select>
-                    <option value="none">None</option>
-                </select>
-            </label>
-            <label>
-                Alpha Channel Handling:
-                <select>
-                    <option value="none">None</option>
-                </select>
-            </label>
-            <label><button id="addImage">Add Images</button></label>
+            <div class="optionGroup flexColumn">
+                <label>Width: <input type="number" value="192">px</label>
+                <label>Height: <input type="number" value="192">px</label>
+                <label>
+                    <input type="checkbox" checked>
+                    <span class="checkable">Keep Dimensions</span>
+                </label>
+            </div>
+            <div class="optionGroup flexColumn">
+                <label>Animation Speed / Frames per Second: <input type="number" value="24"></label>
+                <label>
+                    Quality:
+                    <input type="range" min="1" step="1" max="10" value="10">
+                </label>
+                <label>
+                    Dithering:
+                    <select>
+                        <option value="none">None</option>
+                        <option value="FloydSteinberg">FloydSteinberg</option>
+                        <option value="FloydSteinberg-serpentine">FloydSteinberg-serpentine</option>
+                        <option value="FalseFloydSteinberg">FalseFloydSteinberg</option>
+                        <option value="FalseFloydSteinberg-serpentine">FalseFloydSteinberg-serpentine</option>
+                        <option value="Stucki">Stucki</option>
+                        <option value="Stucki-serpentine">Stucki-serpentine</option>
+                        <option value="Atkinson">Atkinson</option>
+                        <option value="Atkinson-serpentine">Atkinson-serpentine</option>
+                    </select>
+                </label>
+                <label>
+                    Alpha Channel Handling:
+                    <select>
+                        <option value="none">Pixel Removal</option>
+                        <option value="none">Alpha Removal</option>
+                    </select>
+                </label>
+            </div>
+            <button id="addImage">Add Images</button>
             <div id="colorPicker">
                 <div id="colorPickerLabel">Transparent Key Color</div>
             </div>
