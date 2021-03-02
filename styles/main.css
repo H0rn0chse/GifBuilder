@@ -41,15 +41,15 @@ body {
     background-color: var(--timeline-bg);
 }
 
-.flexRow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 .flexColumn {
     display: flex;
     flex-direction: column;
+}
+
+.flexRow, .flexColumn > label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .endContent {

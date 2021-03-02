@@ -2,10 +2,23 @@
     position: relative;
 }
 
-#addImage {
+#colorPicker {
     position: absolute;
-    bottom: 2em;
-    left: 2em;
+    bottom: 1em;
+    right: 1em;
+    height: 266px;
+    width: 180px;
+}
+
+#colorPickerLabel {
+    position: relative;
+    top: -2em;
+}
+
+/*picnic.css override*/
+input[type="range"] {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /*color-picker override*/

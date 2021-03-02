@@ -20,20 +20,47 @@
 </head>
 <body>
     <div id="content">
-        <div id="options">
-            <button id="addImage">Add Images</button>
-            <button id="downloadGif">Download</button>
-            <div id="colorpicker"></div>
+        <div id="options" class="flexColumn">
+
+            <label>Width: <input type="number" placeholder="192">px</label>
+            <label>Height: <input type="number" placeholder="192">px</label>
+            <label>Animation Speed / Frames per Second: <input type="number" placeholder="500"></label>
+            <label>
+                <input type="checkbox" checked>
+                <span class="checkable">Keep Dimensions</span>
+            </label>
+            <label>
+                Quality:
+                <input type="range" min="1" step="1" max="10" value="10">
+            </label>
+            <label>
+                Dithering:
+                <select>
+                    <option value="none">None</option>
+                </select>
+            </label>
+            <label>
+                Alpha Channel Handling:
+                <select>
+                    <option value="none">None</option>
+                </select>
+            </label>
+            <label><button id="addImage">Add Images</button></label>
+            <div id="colorPicker">
+                <div id="colorPickerLabel">Transparent Key Color</div>
+            </div>
         </div>
         <div id="preview">
             <img id="previewImage" src="/assets/initial.png"></img>
-            <div id="previewInfo" class="flexColumn">
-                <div>Warnings:</div>
+            <div class="previewInfo right">
                 <div class="flexRow">
                     <div>Estimated size:&nbsp</div>
                     <div id="estimatedSize">0</div>
                     <div>&nbspKB</div>
                 </div>
+            </div>
+            <div class="previewInfo left">
+                <label><button id="downloadGif">Download</button></label>
             </div>
         </div>
         <div id="timeline">

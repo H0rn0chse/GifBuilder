@@ -5,8 +5,15 @@
     justify-content: center;
 }
 
-#previewInfo {
+.previewInfo {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 0.5em;
+}
+
+.previewInfo.left {
+    left: 0.5em;
+}
+
+.previewInfo.right {
+    right: 0.5em;
 }

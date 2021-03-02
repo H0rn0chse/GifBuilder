@@ -6,9 +6,8 @@ import { TimelineManager } from "./TimelineManager.js";
 let colorPicker = null;
 
 function initPicker () {
-    const colorpickerElem = document.querySelector("#colorpicker");
     colorPicker = new ColorPickerControl({
-        container: colorpickerElem,
+        container: document.querySelector("#colorPicker"),
         theme: 'dark'
     });
 
