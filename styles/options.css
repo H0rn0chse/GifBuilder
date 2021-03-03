@@ -4,6 +4,7 @@
 
 .optionGroup {
     margin: 2em;
+    max-width: 33em;
 }
 
 .optionGroup * {
@@ -22,10 +23,14 @@
     width: 17em;
 }
 
-#addImage {
+.optionsBottom {
     position: absolute;
     bottom: 0.5em;
     left: 0.5em;
+}
+
+.optionsBottom > * {
+    margin-right: 0.5em;
 }
 
 #colorPicker {

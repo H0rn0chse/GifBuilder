@@ -22,22 +22,22 @@
     <div id="content">
         <div id="options" class="flexColumn">
             <div class="optionGroup flexColumn">
-                <label>Width: <input type="number" value="192">px</label>
-                <label>Height: <input type="number" value="192">px</label>
+                <label>Width: <input id="imageWidth" type="number" value="0">px</label>
+                <label>Height: <input id="imageHeight" type="number" value="0">px</label>
                 <label>
-                    <input type="checkbox" checked>
+                    <input id="keepDimensions" type="checkbox" checked>
                     <span class="checkable">Keep Dimensions</span>
                 </label>
             </div>
             <div class="optionGroup flexColumn">
-                <label>Animation Speed / Frames per Second: <input type="number" value="24"></label>
+                <label>Animation Speed / Frames per Second: <input id="framesPerSecond" type="number" value="24"></label>
                 <label>
                     Quality:
-                    <input type="range" min="1" step="1" max="10" value="10">
+                    <input id="imageQuality" type="range" min="1" step="1" max="10" value="10">
                 </label>
                 <label>
                     Dithering:
-                    <select>
+                    <select id="imageDithering">
                         <option value="none">None</option>
                         <option value="FloydSteinberg">FloydSteinberg</option>
                         <option value="FloydSteinberg-serpentine">FloydSteinberg-serpentine</option>
@@ -51,13 +51,16 @@
                 </label>
                 <label>
                     Alpha Channel Handling:
-                    <select>
+                    <select id="alphaHandling">
                         <option value="none">Pixel Removal</option>
                         <option value="none">Alpha Removal</option>
                     </select>
                 </label>
             </div>
-            <button id="addImage">Add Images</button>
+            <div class="optionsBottom flexRow">
+                <button id="addImage">Add Images</button>
+                <button id="clearImages">Remove all Images</button>
+            </div>
             <div id="colorPicker">
                 <div id="colorPickerLabel">Transparent Key Color</div>
             </div>
