@@ -1,5 +1,12 @@
 # GifBuilder
 
+description TBD
+
+* [Usage](#usage)
+* [Libraries](#libraries)
+
+## Usage
+
 TBD
 
 ## Libraries
