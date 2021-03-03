@@ -37,7 +37,7 @@ export class Item {
         this.imageRef.onload = this._onImageLoad.bind(this)
         this.contentRef.appendChild(this.imageRef);
 
-        // imageInfo
+        //======= imageInfo =============
         const imageInfo = document.createElement("div");
         imageInfo.classList.add("imageInfo")
 
@@ -71,7 +71,7 @@ export class Item {
         }
         this.size.innerText = `(${width}x${height})`;
         setInputDimensions(width, height);
-        //this.loaded.resolve();
+
         this._createCanvas();
     }
 
@@ -81,39 +81,8 @@ export class Item {
         this.canvasRef.height = this.imageRef.naturalHeight;
         this.ctx = this.canvasRef.getContext("2d");
 
-        /*
-        this.ctx.fillStyle = "#F0F";
-        this.ctx.fillRect(0, 0, this.canvasRef.width, this.canvasRef.height);
-        */
         this.ctx.drawImage(this.imageRef, 0, 0);
-
-        /*replaceColor(this.ctx, this.canvasRef.width, this.canvasRef.height, [0,0,0], [0,0,255]);
-        replaceColor(this.ctx, this.canvasRef.width, this.canvasRef.height, [255,0,255], [0,0,0]);
-        replaceColor(this.ctx, this.canvasRef.width, this.canvasRef.height, [0,0,255], [255,0,255]);*/
-        //replaceColor(ctx, [255,0,255], [255,0,0]);
 
         this.loaded.resolve();
     }
-}
-
-function replaceColor (ctx, width, height, oldRGB, newRGB) {
-    const imageData = ctx.getImageData(0, 0, width, height);
-
-    // examine every pixel,
-    // change any old rgb to the new-rgb
-    for (var i=0;i<imageData.data.length;i+=4)
-    {
-        // is this pixel the old rgb?
-        if(imageData.data[i]==oldRGB[0] &&
-            imageData.data[i+1]==oldRGB[1] &&
-            imageData.data[i+2]==oldRGB[2]
-        ){
-            // change to your new rgb
-            imageData.data[i]=newRGB[0];
-            imageData.data[i+1]=newRGB[1];
-            imageData.data[i+2]=newRGB[2];
-        }
-    }
-    // put the altered data back on the canvas
-    ctx.putImageData(imageData,0,0);
 }

@@ -48,6 +48,15 @@ class _TimelineManager {
             this.items.delete(muuriItem);
             this.grid.remove([muuriItem], { removeElements: true });
         }
+        if (this.items.size === 0) {
+            PreviewManager.showPlaceholder();
+        }
+    }
+
+    removeAllItems () {
+        this.items.clear();
+        this.grid.remove(this.grid.getItems(), { removeElements: true });
+        PreviewManager.showPlaceholder();
     }
 
     getItems () {

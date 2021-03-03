@@ -19,6 +19,10 @@ function initPicker () {
     });
 }
 
+export function getTransparentKeyColor () {
+    return colorPicker.color.toHEX();
+}
+
 export function initOptions () {
     initPicker();
 
@@ -29,6 +33,10 @@ export function initOptions () {
         })
         await Promise.all(promises);
         PreviewManager.render();
+    });
+
+    document.querySelector("#clearImages").addEventListener("click", evt => {
+        TimelineManager.removeAllItems();
     });
 
     document.querySelector("#downloadGif").addEventListener("click", async evt => {
@@ -44,6 +52,7 @@ export function initOptions () {
         document.querySelector("#imageQuality"),
         document.querySelector("#imageDithering"),
         document.querySelector("#alphaHandling"),
+        document.querySelector("#imageSmoothing"),
     ];
 
     inputs.forEach(elem => {
@@ -53,14 +62,14 @@ export function initOptions () {
     });
 }
 
-export function setInputDimensions (width, height) {
+export function setInputDimensions (width, height, force = false) {
     const widthInput = document.querySelector("#imageWidth");
     const heightInput = document.querySelector("#imageHeight");
 
-    if (widthInput.valueAsNumber === 0) {
+    if (widthInput.valueAsNumber === 0 || force) {
         widthInput.value = width;
     }
-    if (heightInput.valueAsNumber === 0) {
+    if (heightInput.valueAsNumber === 0 || force) {
         heightInput.value = height;
     }
 }
@@ -104,3 +113,7 @@ export function getAlphaHandling () {
     return select.value;
 }
 
+export function getImageSmoothing () {
+    const checkbox = document.querySelector("#imageSmoothing");
+    return checkbox.checked;
+}

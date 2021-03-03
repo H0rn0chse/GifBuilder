@@ -5,6 +5,11 @@
     justify-content: center;
 }
 
+#previewImage {
+    padding: 0.2em;
+    border: solid black;
+}
+
 .previewInfo {
     position: absolute;
     bottom: 0.5em;

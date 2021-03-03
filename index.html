@@ -30,7 +30,7 @@
                 </label>
             </div>
             <div class="optionGroup flexColumn">
-                <label>Animation Speed / Frames per Second: <input id="framesPerSecond" type="number" value="24"></label>
+                <label>Animation Speed / Frames per Second: <input id="framesPerSecond" type="number" value="5"></label>
                 <label>
                     Quality:
                     <input id="imageQuality" type="range" min="1" step="1" max="10" value="10">
@@ -52,9 +52,14 @@
                 <label>
                     Alpha Channel Handling:
                     <select id="alphaHandling">
-                        <option value="none">Pixel Removal</option>
-                        <option value="none">Alpha Removal</option>
+                        <option value="roundAlpha">Round Alpha</option>
+                        <option value="pixelRemoval">Pixel Removal</option>
+                        <option value="alphaRemoval">Alpha Removal</option>
                     </select>
+                </label>
+                <label>
+                    <input id="imageSmoothing" type="checkbox">
+                    <span class="checkable">Image Smoothing</span>
                 </label>
             </div>
             <div class="optionsBottom flexRow">
