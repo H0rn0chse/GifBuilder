@@ -43,9 +43,9 @@
     text-align: center;
 }
 
-.imageName {
+.imageInfo {
     position: absolute;
-    bottom: 1em;
+    bottom: 0.2em;
     text-align: center;
     width: 100%;
 }

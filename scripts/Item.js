@@ -1,4 +1,5 @@
 import { Deferred } from "./Deferred.js";
+import { setInputDimensions } from "./options.js";
 import { TimelineManager } from "./TimelineManager.js";
 
 let guid = 0;
@@ -36,10 +37,19 @@ export class Item {
         this.imageRef.onload = this._onImageLoad.bind(this)
         this.contentRef.appendChild(this.imageRef);
 
+        // imageInfo
+        const imageInfo = document.createElement("div");
+        imageInfo.classList.add("imageInfo")
+
         const name = document.createElement("div")
-        name.classList.add("imageName")
         name.innerText = this.name;
-        this.contentRef.appendChild(name);
+        imageInfo.appendChild(name);
+
+        this.size = document.createElement("div")
+        imageInfo.appendChild(this.size);
+
+        this.contentRef.appendChild(imageInfo);
+
 
         const deleteButton = document.createElement("div");
         deleteButton.classList.add("itemDelete");
@@ -55,10 +65,12 @@ export class Item {
         const height = this.imageRef.naturalHeight
         const width = this.imageRef.naturalWidth
         if (height > width) {
-            this.imageRef.style.height = "calc(var(--blockSize) - 2em)";
+            this.imageRef.style.height = "calc(var(--blockSize) - 3.5em)";
         } else {
-            this.imageRef.style.width = "calc(var(--blockSize) - 2em)";
+            this.imageRef.style.width = "calc(var(--blockSize) - 3.5em)";
         }
+        this.size.innerText = `(${width}x${height})`;
+        setInputDimensions(width, height);
         //this.loaded.resolve();
         this._createCanvas();
     }
