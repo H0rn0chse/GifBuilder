@@ -8,7 +8,8 @@ let colorPicker = null;
 function initPicker () {
     colorPicker = new ColorPickerControl({
         container: document.querySelector("#colorPicker"),
-        theme: 'dark'
+        theme: "dark",
+        use_alpha: false
     });
 
     colorPicker.color.fromRGBa(255,0,255);

@@ -53,11 +53,3 @@ input[type="range"] {
     padding-left: 0;
     padding-right: 0;
 }
-
-/*color-picker override*/
-.color-picker-alpha-input.range-input-control {
-    display: none;
-}
-.color-picker {
-    min-height: 266px;
-}
