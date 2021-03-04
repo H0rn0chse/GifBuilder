@@ -9,6 +9,7 @@
     padding: 0.2em;
     border: solid black;
     max-height: 50vh;
+    max-width: 40vw;
 }
 
 .previewInfo {

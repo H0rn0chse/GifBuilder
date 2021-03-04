@@ -50,7 +50,7 @@ export function initOptions () {
         document.querySelector("#keepDimensions"),
         document.querySelector("#framesPerSecond"),
         document.querySelector("#imageQuality"),
-        document.querySelector("#imageDithering"),
+        document.querySelector("#imageDither"),
         document.querySelector("#alphaHandling"),
         document.querySelector("#imageSmoothing"),
         document.querySelector("#colorUsage"),
@@ -100,8 +100,8 @@ export function getQuality () {
     return (parseInt(input.max, 10) + 1) - input.valueAsNumber;
 }
 
-export function getDithering () {
-    const select = document.querySelector("#imageDithering");
+export function getDither () {
+    const select = document.querySelector("#imageDither");
     const value = select.value;
     if (value === "none") {
         return false;

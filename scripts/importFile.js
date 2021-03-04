@@ -19,7 +19,7 @@ function addLoadFile () {
 export async function importImage (multiple = false) {
 	const deferred = new Deferred()
 	fileHandler.value = ""
-	fileHandler.setAttribute("accept", ".png")
+	fileHandler.setAttribute("accept", ".png, .jpg, .jpeg, .bmp")
 	if (multiple) {
 		fileHandler.setAttribute("multiple", true)
 	} else {

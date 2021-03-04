@@ -1,4 +1,4 @@
-import { getQuality, getWidth, getHeight, getDithering, setInputDimensions, getKeepDimensions, getFramesPerSecond, getAlphaHandling, getTransparentKeyColor, getImageSmoothing, getColorUsage } from "./options.js";
+import { getQuality, getWidth, getHeight, getDither, setInputDimensions, getKeepDimensions, getFramesPerSecond, getAlphaHandling, getTransparentKeyColor, getImageSmoothing, getColorUsage } from "./options.js";
 import { TimelineManager } from "./TimelineManager.js";
 
 class _PreviewManager {
@@ -55,7 +55,7 @@ class _PreviewManager {
         this.keepDimensions = getKeepDimensions();
         this.framesPerSecond = getFramesPerSecond();
         this.gif.setOption("quality", getQuality() || 1);
-        this.gif.setOption("dithering", getDithering() || false);
+        this.gif.setOption("dither", getDither() || false);
         this.alphaHandling = getAlphaHandling();
         this.transparentKeyColor = getTransparentKeyColor();
         if (getColorUsage() === "key" ) {
