@@ -23,7 +23,7 @@ class _PreviewManager {
             width: this.width,
             height: this.height,
             transparent: this.HEXToBinary(this.transparentKeyColor),
-            workerScript: "/libs/gif.worker.js",
+            workerScript: "./libs/gif.worker.js",
             debug: true,
         });
 
