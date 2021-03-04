@@ -21,6 +21,14 @@ class _TimelineManager {
             }
         });
 
+        this.grid.on("dragStart", (item, event) => {
+            item.getElement().style.cursor = "grabbing";
+        });
+
+        this.grid.on("dragEnd", (item, event) => {
+            item.getElement().style.cursor = "";
+        });
+
         this.grid.on('layoutEnd', item => {
             PreviewManager.render();
         });
@@ -37,7 +45,7 @@ class _TimelineManager {
 
     addItem (data) {
         const item = new Item(data.content, data.name);
-        const muuriItem = this.grid.add(item.domRef, {})[0];
+        const muuriItem = this.grid.add(item.domRef)[0];
         this.items.set(muuriItem, item);
         return item.loaded.promise;
     }

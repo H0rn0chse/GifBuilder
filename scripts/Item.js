@@ -51,12 +51,28 @@ export class Item {
         this.contentRef.appendChild(imageInfo);
 
 
+        //======= imageInfo =============
+        const buttonRow = document.createElement("div");
+        buttonRow.classList.add("buttonRow", "flexRow");
+
+        const duplicateButton = document.createElement("div");
+        duplicateButton.innerHTML = feather.icons["copy"].toSvg({ color: "#0074d9" })
+        duplicateButton.classList.add("itemDuplicate");
+        duplicateButton.addEventListener("click", evt => {
+            TimelineManager.addItem({ content: this.src, name: this.name });
+        });
+        buttonRow.appendChild(duplicateButton);
+
         const deleteButton = document.createElement("div");
+        deleteButton.innerHTML = feather.icons["x"].toSvg({ color: "red" })
         deleteButton.classList.add("itemDelete");
         deleteButton.addEventListener("click", evt => {
             TimelineManager.removeItem(this);
         });
-        this.contentRef.appendChild(deleteButton);
+        buttonRow.appendChild(deleteButton);
+
+        this.contentRef.appendChild(buttonRow);
+
 
         this.domRef.appendChild(this.contentRef);
     }

@@ -44,10 +44,6 @@ class _PreviewManager {
         return hexCode.toUpperCase().replace(/\#/, "0x");
     }
 
-    setTransparentColor (color) {
-        this.gif.setOption("transparent", color); // "0xFF00FF"
-    }
-
     fetchOptions () {
         this.width = getWidth() || 32;
         this.gif.setOption("width", this.width);
