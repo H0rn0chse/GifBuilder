@@ -5,10 +5,14 @@
     justify-content: center;
 }
 
+#previewMain {
+    position: relative;
+}
+
 #previewImage {
     padding: 0.2em;
     border: solid black;
-    max-height: 50vh;
+    max-height: 45vh;
     max-width: 40vw;
 }
 
@@ -26,12 +30,22 @@
 }
 
 #previewLoader {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 50vh;
+    max-width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--loading-bg);
+    opacity: 0.5;
 }
 
 #previewLoader .loader {
     color: black;
-    position: absolute;
-    bottom: -7em;
-    left: -7em;
+    position: relative;
+    top: -25px;
 }

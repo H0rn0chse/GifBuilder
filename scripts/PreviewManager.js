@@ -11,8 +11,8 @@ class _PreviewManager {
 
         this.framesPerSecond = 5;
         this.keepDimensions = true;
-        this.width = 32
-        this.height = 32
+        this.width = 32;
+        this.height = 32;
         this.transparentKeyColor = "#FF00FF";
         this.imageSmoothing = false;
 
@@ -72,6 +72,9 @@ class _PreviewManager {
     }
 
     showLoader (show) {
+        const imageRect = this.imgRef.getBoundingClientRect()
+        this.loader.style.width = `${imageRect.width}px`;
+        this.loader.style.height = `${imageRect.height}px`;
         this.loader.style.display = !!show ? "" : "none";
     }
 
