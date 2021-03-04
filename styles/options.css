@@ -43,7 +43,9 @@
 
 #colorPickerLabel {
     position: relative;
-    top: -2em;
+    top: -4em;
+    left: -1.5em;
+    width: max-content;
 }
 
 /*picnic.css override*/

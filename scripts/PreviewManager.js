@@ -1,4 +1,4 @@
-import { getQuality, getWidth, getHeight, getDithering, setInputDimensions, getKeepDimensions, getFramesPerSecond, getAlphaHandling, getTransparentKeyColor, getImageSmoothing } from "./options.js";
+import { getQuality, getWidth, getHeight, getDithering, setInputDimensions, getKeepDimensions, getFramesPerSecond, getAlphaHandling, getTransparentKeyColor, getImageSmoothing, getColorUsage } from "./options.js";
 import { TimelineManager } from "./TimelineManager.js";
 
 class _PreviewManager {
@@ -58,7 +58,11 @@ class _PreviewManager {
         this.gif.setOption("dithering", getDithering() || false);
         this.alphaHandling = getAlphaHandling();
         this.transparentKeyColor = getTransparentKeyColor();
-        this.gif.setOption("transparent", `${this.HEXToBinary(this.transparentKeyColor)}`);
+        if (getColorUsage() === "key" ) {
+            this.gif.setOption("transparent", `${this.HEXToBinary(this.transparentKeyColor)}`);
+        } else {
+            this.gif.setOption("transparent", null);
+        }
         this.imageSmoothing = getImageSmoothing();
     }
 

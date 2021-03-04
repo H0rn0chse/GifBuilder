@@ -53,6 +53,7 @@ export function initOptions () {
         document.querySelector("#imageDithering"),
         document.querySelector("#alphaHandling"),
         document.querySelector("#imageSmoothing"),
+        document.querySelector("#colorUsage"),
     ];
 
     inputs.forEach(elem => {
@@ -116,4 +117,9 @@ export function getAlphaHandling () {
 export function getImageSmoothing () {
     const checkbox = document.querySelector("#imageSmoothing");
     return checkbox.checked;
+}
+
+export function getColorUsage () {
+    const select = document.querySelector("#colorUsage");
+    return select.value;
 }

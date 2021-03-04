@@ -1,0 +1,13 @@
+@media (max-width: 1500px), (max-height: 900px) {
+    :root {
+        --blockSize: 192px;
+    }
+
+    body {
+        font-size: 0.6em;
+    }
+
+    #colorPickerLabel {
+        left: 0 !important;
+    }
+}
