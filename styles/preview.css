@@ -26,11 +26,11 @@
 
 #previewLoader {
     position: relative;
-    height: auto;
 }
 
-#previewLoader div {
+#previewLoader .loader {
+    color: black;
     position: absolute;
-    top: -10px;
-    background-color: black;
+    bottom: -7em;
+    left: -7em;
 }
