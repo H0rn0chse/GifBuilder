@@ -22,17 +22,22 @@ class _PreviewManager {
             height: this.height,
             transparent: this.HEXToBinary(this.transparentKeyColor),
             workerScript: "/libs/gif.worker.js",
+            debug: true,
         });
 
 
         this.gif.on("finished", blob => {
             this.gif.running = false;
             this.currentBlob = blob
-            this.estimatedSize.innerText = (blob.size / 1024).toFixed(2);
+            this._setEstimatedSize(blob.size);
 
             this.imgRef.src = URL.createObjectURL(blob);
             console.log("gif done");
         });
+    }
+
+    init () {
+        this.render = _.debounce(this._handleRender, 800);
     }
 
     HEXToBinary (hexCode) {
@@ -63,8 +68,17 @@ class _PreviewManager {
         setInputDimensions(0, 0, true);
     }
 
+    _setEstimatedSize (size) {
+        const kb = size / 1024;
+        if (kb < 1024) {
+            this.estimatedSize.innerText = `${kb.toFixed(2)} KB`;
+        } else {
+            const mb = kb / 1024;
+            this.estimatedSize.innerText = `${mb.toFixed(2)} MB`;
+        }
+    }
 
-    render () {
+    _handleRender () {
         const frames = TimelineManager.getItems();
         if (this.gif.running) {
             this.gif.abort();
@@ -78,7 +92,7 @@ class _PreviewManager {
         // add current frames
         frames.forEach(frame => {
             const processedFrame = this._processFrame(frame);
-            this.gif.addFrame(processedFrame, {copy: true, delay: delay});
+            this.gif.addFrame(processedFrame, {delay: delay});
         });
 
         this.gif.render();
@@ -100,35 +114,16 @@ class _PreviewManager {
         targetCanvas.width = this.width;
         targetCanvas.height = this.height;
 
-        // draw image to
+        // draw image to target
         if (!this.keepDimensions) {
             targetCtx.drawImage(sourceCanvas, 0, 0, this.width, this.height);
         } else {
-            let resizeFactor = 1;
+            const widthRatio = this.width / sourceCanvas.width;
+            const heightRatio = this.height / sourceCanvas.height;
+            const bestRatio = Math.min(widthRatio, heightRatio);
 
-            /*const widthFactor = sourceCanvas.width / Math.abs(sourceCanvas.width - this.width);
-            const heightFactor = sourceCanvas.height / Math.abs(sourceCanvas.height - this.height);
-            // we need to downsize
-            //if (widthFactor > 1 || heightFactor > 1) {
-                if (widthFactor < heightFactor) {
-                    resizeFactor = 1 / widthFactor;
-                } else {
-                    resizeFactor = 1 / heightFactor;
-                }
-
-            // we need to upsize
-            /*} else if (widthFactor < 1 || heightFactor < 1) {
-                if (widthFactor < heightFactor) {
-                    resizeFactor = widthFactor;
-                } else {
-                    resizeFactor = heightFactor;
-                }
-            }
-            */
-
-           const targetWidth = resizeFactor * sourceCtx.canvas.width;
-           const targetHeight = resizeFactor * sourceCtx.canvas.height;
-           console.log("w:", targetWidth, ",h:", targetHeight);
+            const targetWidth = bestRatio * sourceCtx.canvas.width;
+            const targetHeight = bestRatio * sourceCtx.canvas.height;
             targetCtx.drawImage(sourceCanvas, 0, 0, targetWidth, targetHeight);
         }
 

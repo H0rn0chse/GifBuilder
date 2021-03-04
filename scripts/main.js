@@ -4,8 +4,9 @@ import { PreviewManager } from "./PreviewManager.js";
 import { TimelineManager } from "./TimelineManager.js";
 
 export function init () {
-    initImport();
     TimelineManager.init();
+    PreviewManager.init();
+    initImport();
     initOptions();
 
     // debugging

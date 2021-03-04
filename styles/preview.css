@@ -8,6 +8,7 @@
 #previewImage {
     padding: 0.2em;
     border: solid black;
+    max-height: 50vh;
 }
 
 .previewInfo {
