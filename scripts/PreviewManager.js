@@ -1,3 +1,4 @@
+import { HintManager } from "./HintManager.js";
 import { getQuality, getWidth, getHeight, getDither, setInputDimensions, getKeepDimensions, getFramesPerSecond, getAlphaHandling, getTransparentKeyColor, getImageSmoothing, getColorUsage } from "./options.js";
 import { TimelineManager } from "./TimelineManager.js";
 
@@ -24,7 +25,7 @@ class _PreviewManager {
             height: this.height,
             transparent: this.HEXToBinary(this.transparentKeyColor),
             workerScript: "./libs/gif.worker.js",
-            debug: true,
+            debug: false,
         });
 
 
@@ -36,6 +37,8 @@ class _PreviewManager {
             this.imgRef.src = URL.createObjectURL(blob);
             console.log("gif done");
             this.showLoader(false);
+
+            HintManager.setUi();
         });
     }
 
@@ -69,6 +72,9 @@ class _PreviewManager {
     showPlaceholder () {
         this.imgRef.src = "./assets/initial.png";
         setInputDimensions(0, 0, true);
+        this.currentBlob = null;
+        this._setEstimatedSize(0);
+        HintManager.reset();
     }
 
     showLoader (show) {
@@ -97,12 +103,15 @@ class _PreviewManager {
         if (this.gif.running) {
             this.gif.abort();
         }
+        console.log("gif start");
 
+        HintManager.reset();
         this.fetchOptions();
         const delay = 1000 / this.framesPerSecond;
 
-        // remove alle frames
+        // remove all frames
         this.gif.frames.splice(0, this.gif.frames.length);
+
         // add current frames
         frames.forEach(frame => {
             const processedFrame = this._processFrame(frame);
@@ -113,6 +122,7 @@ class _PreviewManager {
     }
 
     _processFrame (sourceCtx) {
+        HintManager.frameStart();
         let ctx = this._handleSize(sourceCtx);
         ctx = this._handleAlpha(ctx);
         return ctx;
@@ -126,6 +136,8 @@ class _PreviewManager {
         // set target size
         targetCanvas.width = this.width;
         targetCanvas.height = this.height;
+
+        HintManager.checkCanvas(sourceCanvas);
 
         // draw image to target
         targetCtx.imageSmoothingEnabled = this.imageSmoothing;
@@ -151,6 +163,8 @@ class _PreviewManager {
         const targetCtx = targetCanvas.getContext("2d");
 
         iterateImageData(imageData, (data) => {
+            HintManager.checkPixel(data);
+
             switch (this.alphaHandling) {
                 case "alphaRemoval":
                     if (data.a > 0) {

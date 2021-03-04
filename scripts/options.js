@@ -34,16 +34,18 @@ export function initOptions () {
         })
         await Promise.all(promises);
         PreviewManager.render();
-    });
+    }, { passive: true });
 
     document.querySelector("#clearImages").addEventListener("click", evt => {
         TimelineManager.removeAllItems();
-    });
+    }, { passive: true });
 
     document.querySelector("#downloadGif").addEventListener("click", async evt => {
         const blob = PreviewManager.currentBlob;
-        exportBlob(blob, "image.gif");
-    });
+        if (blob) {
+            exportBlob(blob, "image.gif");
+        }
+    }, { passive: true });
 
     const inputs = [
         document.querySelector("#imageWidth"),
@@ -60,7 +62,7 @@ export function initOptions () {
     inputs.forEach(elem => {
         elem.addEventListener("change", evt => {
             PreviewManager.render();
-        });
+        }, { passive: true });
     });
 }
 

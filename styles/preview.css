@@ -29,6 +29,11 @@
     right: 0.5em;
 }
 
+#warningIcon {
+    margin-left: 0.5em;
+    cursor: pointer;
+}
+
 #previewLoader {
     position: absolute;
     top: 0;

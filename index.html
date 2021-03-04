@@ -92,13 +92,48 @@
                     <div id="estimatedSize">0 KB</div>
                 </div>
             </div>
-            <div class="previewInfo left">
+            <div class="previewInfo left flexRow">
                 <label><button id="downloadGif">Download</button></label>
+                <div id="warningIcon"></div>
             </div>
         </div>
         <div id="timeline">
             <div id="grid"></div>
         </div>
+    </div>
+    <div class="modal">
+        <input id="warningModal" type="checkbox" />
+        <label for="warningModal" class="overlay"></label>
+        <article id="warningModalContent">
+            <header>
+                <h3 class="text">Warnings</h3>
+                <label for="warningModal" class="close">&times;</label>
+            </header>
+            <section class="content flexColumn">
+                There were some issues detected. This might influence the quality of the gif:
+                <div id="sizeDifferencesWarning">
+                    <h4>Different image sizes</h4>
+                    <p>The images you provided have different sizes. In the merging process the images get resized by diffrent amounts. This might lead to information and quality loss.</p>
+                </div>
+                <div id="colorAmountWarning">
+                    <h4>Too much colors used</h4>
+                    <p>The images contain more than 255 colors. The gif format is limited to 256 colors and one color is reserved for internal processes. The colors get reduced by merging similar colors. You can select the merging algorithm by changing the dither option.</p>
+                </div>
+                <div id="mixedAlphaWarning">
+                    <h4>Semi transparent colors</h4>
+                    <p>The images contain pixels with semi transparent colors. This tool does not support semi transparent colors. The colors are converted to transparent or opaque. You can change the behavior by selecting the Alpha Channel Handling option.</p>
+                </div>
+                <div id="missingTransparentWarning">
+                    <h4>No transparent pixels</h4>
+                    <p>You've selected the transparent color to be the transparency key. This requires atleast one transparent pixel per frame. Otherwise all colors get keyed out.</p>
+                </div>
+            </section>
+            <footer class="flexRow">
+                <div class="endContent flexRow">
+                    <label for="warningModal" class="button">Close</label>
+                </div>
+            </footer>
+        </article>
     </div>
     <div id="hidden"></div>
     <script

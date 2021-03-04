@@ -60,7 +60,7 @@ export class Item {
         duplicateButton.classList.add("itemDuplicate");
         duplicateButton.addEventListener("click", evt => {
             TimelineManager.addItem({ content: this.src, name: this.name });
-        });
+        }, { passive: true });
         buttonRow.appendChild(duplicateButton);
 
         const deleteButton = document.createElement("div");
@@ -68,7 +68,7 @@ export class Item {
         deleteButton.classList.add("itemDelete");
         deleteButton.addEventListener("click", evt => {
             TimelineManager.removeItem(this);
-        });
+        }, { passive: true });
         buttonRow.appendChild(deleteButton);
 
         this.contentRef.appendChild(buttonRow);
