@@ -23,3 +23,14 @@
 .previewInfo.right {
     right: 0.5em;
 }
+
+#previewLoader {
+    position: relative;
+    height: auto;
+}
+
+#previewLoader div {
+    position: absolute;
+    top: -10px;
+    background-color: black;
+}

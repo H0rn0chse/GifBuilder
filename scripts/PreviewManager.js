@@ -5,6 +5,8 @@ class _PreviewManager {
     constructor () {
         this.estimatedSize = document.querySelector("#estimatedSize");
         this.imgRef = document.querySelector("#previewImage");
+        this.loader = document.querySelector("#previewLoader");
+        this.showLoader(false);
         this.currentBlob = null;
 
         this.framesPerSecond = 5;
@@ -33,6 +35,7 @@ class _PreviewManager {
 
             this.imgRef.src = URL.createObjectURL(blob);
             console.log("gif done");
+            this.showLoader(false);
         });
     }
 
@@ -64,6 +67,10 @@ class _PreviewManager {
         setInputDimensions(0, 0, true);
     }
 
+    showLoader (show) {
+        this.loader.style.display = !!show ? "" : "none";
+    }
+
     _setEstimatedSize (size) {
         const kb = size / 1024;
         if (kb < 1024) {
@@ -76,6 +83,10 @@ class _PreviewManager {
 
     _handleRender () {
         const frames = TimelineManager.getItems();
+        if (!frames.length) {
+            return;
+        }
+        this.showLoader(true);
         if (this.gif.running) {
             this.gif.abort();
         }
@@ -104,13 +115,13 @@ class _PreviewManager {
         const sourceCanvas = sourceCtx.canvas;
         const targetCanvas = document.createElement("canvas");
         const targetCtx = targetCanvas.getContext("2d");
-        targetCtx.imageSmoothingEnabled = this.imageSmoothing;
 
         // set target size
         targetCanvas.width = this.width;
         targetCanvas.height = this.height;
 
         // draw image to target
+        targetCtx.imageSmoothingEnabled = this.imageSmoothing;
         if (!this.keepDimensions) {
             targetCtx.drawImage(sourceCanvas, 0, 0, this.width, this.height);
         } else {
