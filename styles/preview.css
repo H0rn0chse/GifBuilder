@@ -46,7 +46,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--loading-bg);
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 #previewLoader .loader {

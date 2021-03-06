@@ -12,6 +12,7 @@ body {
     padding: 0;
     overflow: hidden;
     position: relative;
+    color: var(--common-font-secondary);
 }
 
 #hidden {
@@ -72,4 +73,18 @@ body {
 .endContent {
     flex-grow: 1;
     justify-content: flex-end;
+}
+
+/*picnic.css override*/
+input, select, option {
+    color: var(--common-font-primary);
+    background-color: var(--common-bg);
+}
+
+:checked[type=checkbox]+.checkable:after {
+    color: var(--common-font-primary);
+}
+
+select {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii0yOTYgNDE5LjkgMiAzIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IC0yOTYgNDE5LjkgMiAzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRENERERFO30NCjwvc3R5bGU+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTI5Niw0MjAuOWwxLDJsMS0ySC0yOTZ6Ii8+DQo8L3N2Zz4NCg==) no-repeat scroll 95% center/10px 15px;
 }

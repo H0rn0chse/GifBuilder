@@ -56,7 +56,7 @@ export class Item {
         buttonRow.classList.add("buttonRow", "flexRow");
 
         const duplicateButton = document.createElement("div");
-        duplicateButton.innerHTML = feather.icons["copy"].toSvg({ color: "#0074d9" })
+        duplicateButton.innerHTML = feather.icons["copy"].toSvg({ color: "var(--common-primary)" })
         duplicateButton.classList.add("itemDuplicate");
         duplicateButton.addEventListener("click", evt => {
             TimelineManager.addItem({ content: this.src, name: this.name });
@@ -64,7 +64,7 @@ export class Item {
         buttonRow.appendChild(duplicateButton);
 
         const deleteButton = document.createElement("div");
-        deleteButton.innerHTML = feather.icons["x"].toSvg({ color: "red" })
+        deleteButton.innerHTML = feather.icons["x"].toSvg({ color: "var(--common-delete)" });
         deleteButton.classList.add("itemDelete");
         deleteButton.addEventListener("click", evt => {
             TimelineManager.removeItem(this);

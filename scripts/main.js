@@ -11,7 +11,7 @@ initImport();
 initOptions();
 
 const acknowledgements = document.querySelector("#acknowledgements");
-acknowledgements.innerHTML = feather.icons["award"].toSvg({ color: "#e2b007" });
+acknowledgements.innerHTML = feather.icons["award"].toSvg({ color: "var(--acknowledgements)" });
 acknowledgements.addEventListener("click", evt => {
     window.open("./acknowledgements/third-party-licenses.html", '_blank')
 }, { passive: true });

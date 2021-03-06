@@ -21,7 +21,7 @@ class _HintManager {
         this.missingTransparentWarning = document.querySelector("#missingTransparentWarning");
 
         this.warningIcon = document.querySelector("#warningIcon");
-        this.warningIcon.innerHTML = feather.icons["alert-triangle"].toSvg({ color: "#FF8000" })
+        this.warningIcon.innerHTML = feather.icons["alert-triangle"].toSvg({ color: "var(--common-warn)" })
         this.warningIcon.style.display = "none";
         this.warningIcon.addEventListener("click", (evt) => {
             this.warningModal.checked = true;

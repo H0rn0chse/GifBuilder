@@ -24,6 +24,8 @@
     margin: 5px;
     z-index: 1;
     cursor: grab;
+    border-radius: 5px;
+    color: var(--common-font-primary);
 }
 
 .buttonRow {

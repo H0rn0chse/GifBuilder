@@ -1,10 +1,24 @@
 :root {
-    --options-bg: #ffc0cb; /* pink */
+    --common-font-primary: #dcddde;
+    --common-font-secondary: #A0A3A7;
+    --common-primary: #0074d9;
+    --common-primary-light: #0A8DFF;
+    --common-delete: #ff0000;
+    --common-warn: #FF8000;
 
-    --preview-bg: #e0ffff; /*lightcyan*/;
+
+    --common-bg: #36393f;
+    --common-bg-dark: #26282C;
+
+    /*=========== Elements ===============*/
+    --acknowledgements: #e2b007;
+
+    --options-bg: var(--common-bg);
+
+    --preview-bg: var(--common-bg);
     --loading-bg: #FFFFFF;
 
-    --timeline-bg: #90ee90; /*lightgreen*/;
-    --timeline-item-bg: #808080; /*gray*/;
-    --timeline-placeholder: #00ff00; /*lime*/;
+    --timeline-bg: var(--common-bg-dark);
+    --timeline-item-bg: #808080;
+    --timeline-placeholder: var(--common-primary-light);
 }
