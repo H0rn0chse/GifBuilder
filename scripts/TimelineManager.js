@@ -43,9 +43,16 @@ class _TimelineManager {
         })
     }
 
-    addItem (data) {
+    addItem (data, domRef) {
+        let index = -1
+        if (domRef) {
+            index = this.grid.getItems().findIndex(item => {
+                return item.getElement() === domRef;
+            });
+            index += index > -1 ? 1 : 0;
+        }
         const item = new Item(data.content, data.name);
-        const muuriItem = this.grid.add(item.domRef)[0];
+        const muuriItem = this.grid.add(item.domRef, { index: index })[0];
         this.items.set(muuriItem, item);
         return item.loaded.promise;
     }

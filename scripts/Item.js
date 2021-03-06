@@ -59,7 +59,7 @@ export class Item {
         duplicateButton.innerHTML = feather.icons["copy"].toSvg({ color: "var(--common-primary)" })
         duplicateButton.classList.add("itemDuplicate");
         duplicateButton.addEventListener("click", evt => {
-            TimelineManager.addItem({ content: this.src, name: this.name });
+            TimelineManager.addItem({ content: this.src, name: this.name }, this.domRef);
         }, { passive: true });
         buttonRow.appendChild(duplicateButton);
 
