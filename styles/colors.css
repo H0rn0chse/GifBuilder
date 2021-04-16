@@ -19,6 +19,7 @@
     --loading-bg: #FFFFFF;
 
     --timeline-bg: var(--common-bg-dark);
+    --timeline-bg-hover: #122932;
     --timeline-item-bg: #808080;
     --timeline-placeholder: var(--common-primary-light);
 }

@@ -8,6 +8,10 @@
     flex-wrap: nowrap;
 }
 
+#timeline.hover {
+    background-color: var(--timeline-bg-hover);
+}
+
 #grid {
     position: absolute;
     width: 100%;

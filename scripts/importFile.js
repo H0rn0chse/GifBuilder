@@ -16,6 +16,18 @@ function addLoadFile () {
 	return fileHandler
 }
 
+export function checkFileExtension (fileName) {
+	const extensions = [
+		".png",
+		".jpg",
+		".jpeg",
+		".bmp"
+	];
+	return extensions.reduce((acc, ext) => {
+		return acc || fileName.endsWith(ext);
+	}, false);
+}
+
 export async function importImage (multiple = false) {
 	const deferred = new Deferred()
 	fileHandler.value = ""
@@ -31,7 +43,7 @@ export async function importImage (multiple = false) {
 	return deferred.promise
 }
 
-function importDataURL (resolve, reject, event) {
+export function importDataURL (resolve, reject, event) {
 	const files = Object.values(event.target.files || {})
 	const promises = files.map(file => {
 		const deferred = new Deferred()
