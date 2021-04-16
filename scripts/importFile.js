@@ -43,7 +43,20 @@ export async function importImage (multiple = false) {
 	return deferred.promise
 }
 
-export function importDataURL (resolve, reject, event) {
+export async function importDroppedImages (evt) {
+	const files = evt.target.files;
+	for (const fileIndex in files) {
+		const file = files[fileIndex];
+		if (!checkFileExtension(file.name)) {
+			delete files[fileIndex];
+		}
+	}
+	const deferred = new Deferred();
+	importDataURL(deferred.resolve, deferred.reject, evt);
+	return deferred.promise;
+}
+
+function importDataURL (resolve, reject, event) {
 	const files = Object.values(event.target.files || {})
 	const promises = files.map(file => {
 		const deferred = new Deferred()

@@ -1,6 +1,6 @@
 import { HintManager } from "./HintManager.js";
 import { initImport } from "./importFile.js";
-import { initOptions } from "./options.js";
+import { initOptions, initFileDragDrop } from "./options.js";
 import { PreviewManager } from "./PreviewManager.js";
 import { TimelineManager } from "./TimelineManager.js";
 
@@ -9,6 +9,7 @@ PreviewManager.init();
 HintManager.init();
 initImport();
 initOptions();
+initFileDragDrop();
 
 const acknowledgements = document.querySelector("#acknowledgements");
 acknowledgements.innerHTML = feather.icons["award"].toSvg({ color: "var(--acknowledgements)" });

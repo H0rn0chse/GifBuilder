@@ -1,4 +1,3 @@
-import { initDrag } from "./drop.js";
 import { Item } from "./Item.js";
 import { PreviewManager } from "./PreviewManager.js";
 
@@ -9,9 +8,6 @@ class _TimelineManager {
 
     init () {
         this.container = document.querySelector("#timeline");
-
-        initDrag(this.container)
-
         this.gridElement = document.querySelector("#grid");
 
         this.grid = new Muuri(this.gridElement, {

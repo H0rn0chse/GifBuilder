@@ -1,7 +1,8 @@
-import { importImage } from "./importFile.js";
+import { importDroppedImages, importImage } from "./importFile.js";
 import { exportBlob } from "./exportFile.js";
 import { PreviewManager } from "./PreviewManager.js";
 import { TimelineManager } from "./TimelineManager.js";
+import { FileDropArea } from "./FileDropArea.js";
 
 let colorPicker = null;
 
@@ -22,6 +23,19 @@ function initPicker () {
 
 export function getTransparentKeyColor () {
     return colorPicker.color.toHEX();
+}
+
+export function initFileDragDrop () {
+    const dropArea = document.querySelector("#timeline");
+    const handler = new FileDropArea(dropArea, async (evt) => {
+        const images = await importDroppedImages(evt);
+
+        const promises = images.map(data => {
+            return TimelineManager.addItem(data);
+        })
+        await Promise.all(promises);
+        PreviewManager.render();
+    });
 }
 
 export function initOptions () {
