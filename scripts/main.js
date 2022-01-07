@@ -11,12 +11,6 @@ initImport();
 initOptions();
 initFileDragDrop();
 
-const acknowledgements = document.querySelector("#acknowledgements");
-acknowledgements.innerHTML = feather.icons["award"].toSvg({ color: "var(--acknowledgements)" });
-acknowledgements.addEventListener("click", evt => {
-    window.open("./acknowledgements/third-party-licenses.html", '_blank')
-}, { passive: true });
-
 // debugging
 globalThis.HintManager = HintManager;
 globalThis.TimelineManager = TimelineManager;
