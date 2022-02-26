@@ -1,0 +1,13 @@
+[[
+    "/client", "/"
+], [
+    "/node_modules/picnic", "/libs/picnic"
+], [
+    "/node_modules/muuri/dist", "/libs/muuri"
+], [
+    "/node_modules/lodash", "/libs/lodash"
+], [
+    "/node_modules/feather-icons/dist", "/libs/feather-icons"
+], [
+    "/node_modules/wc-github-corners/dist", "/libs/wc-github-corners"
+]]

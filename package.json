@@ -9,7 +9,13 @@
   },
   "author": "",
   "license": "GPL-3.0",
-  "dependencies": {},
+  "dependencies": {
+    "feather-icons": "^4.28.0",
+    "lodash": "^4.17.21",
+    "muuri": "^0.9.5",
+    "picnic": "^7.1.0",
+    "wc-github-corners": "^0.1.5"
+  },
   "devDependencies": {
     "@h0rn0chse/socket-server": "^1.1.1"
   }

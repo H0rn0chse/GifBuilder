@@ -5,15 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GifBuilder</title>
-    <!-- Dependencies -->
+    <!-- anonymized statistics-->
+    <script async defer data-website-id="c6a9a186-b71f-444e-9685-062f312f3266" src="https://h0rn0chse-umami.herokuapp.com/umami.js"></script>
+
+    <!-- Custom Dependencies -->
     <link rel="stylesheet" href="./libs/color-picker.min.css"/>
     <script type="text/javascript" src="./libs/color-picker.min.js"></script>
     <script src="./libs/gif.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
-    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.3/dist/muuri.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Node Dependencies -->
+    <link rel="stylesheet" href="./libs/picnic/picnic.min.css">
+    <script src="./libs/muuri/muuri.min.js" defer></script>
+    <script src="./libs/lodash/lodash.min.js" defer></script>
+    <script src="./libs/feather-icons/feather.min.js" defer></script>
+    <script type="module" src="./libs/wc-github-corners/index.es.js"></script>
+
     <!-- Project -->
     <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="./scripts/main.js"></script>
@@ -133,11 +139,11 @@
         </article>
     </div>
     <div id="hidden"></div>
-    <script
-        data-label="Check out the GitHub repository!"
-        data-href="https://github.com/H0rn0chse/GifBuilder"
-        data-target="_blank"
-        src="https://unpkg.com/github-corners@latest/dist/embed.min.js">
-    </script>
+    <github-corners
+        label="Check out the GitHub repository!"
+        repo="H0rn0chse/GifBuilder"
+        blank="true"
+    >
+    </github-corners>
 </body>
 </html>
