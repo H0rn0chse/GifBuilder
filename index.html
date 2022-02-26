@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./favicon.svg">
+    <title>GifBuilder</title>
+    <!-- anonymized statistics-->
+    <script async defer data-website-id="c6a9a186-b71f-444e-9685-062f312f3266" src="https://h0rn0chse-umami.up.railway.app/WQ4fyxmP2iMY.js"></script>
+
+    <!-- Static Dependencies -->
+    <link rel="stylesheet" href="./color-picker/color-picker.min.css"/>
+    <script type="text/javascript" src="./color-picker/color-picker.min.js" defer></script>
+    <script src="./gif.js/gif.js" defer></script>
+    <script src="./muuri/muuri.min.js" defer></script>
+
+    
+  <script type="module" crossorigin src="./assets/index-cbf129b6.js"></script>
+  <link rel="stylesheet" href="./assets/index-2d881bfb.css">
+</head>
+<body>
+    <div id="content">
+        <div id="options" class="flexColumn">
+            <div class="optionGroup flexColumn">
+                <label>Width: <input id="imageWidth" type="number" value="0">px</label>
+                <label>Height: <input id="imageHeight" type="number" value="0">px</label>
+                <label>
+                    <input id="keepDimensions" type="checkbox" checked>
+                    <span class="checkable">Keep Dimensions</span>
+                </label>
+            </div>
+            <div class="optionGroup flexColumn">
+                <label>Animation Speed / Frames per Second: <input id="framesPerSecond" type="number" value="5"></label>
+                <label>
+                    Quality:
+                    <input id="imageQuality" type="range" min="1" step="1" max="10" value="10">
+                </label>
+                <label>
+                    Dither:
+                    <select id="imageDither">
+                        <option value="none">None</option>
+                        <option value="FloydSteinberg">FloydSteinberg</option>
+                        <option value="FloydSteinberg-serpentine">FloydSteinberg-serpentine</option>
+                        <option value="FalseFloydSteinberg">FalseFloydSteinberg</option>
+                        <option value="FalseFloydSteinberg-serpentine">FalseFloydSteinberg-serpentine</option>
+                        <option value="Stucki">Stucki</option>
+                        <option value="Stucki-serpentine">Stucki-serpentine</option>
+                        <option value="Atkinson">Atkinson</option>
+                        <option value="Atkinson-serpentine">Atkinson-serpentine</option>
+                    </select>
+                </label>
+                <label>
+                    Alpha Channel Handling:
+                    <select id="alphaHandling">
+                        <option value="roundAlpha">Round Alpha</option>
+                        <option value="pixelRemoval">Pixel Removal</option>
+                        <option value="alphaRemoval">Alpha Removal</option>
+                    </select>
+                </label>
+                <label>
+                    <input id="imageSmoothing" type="checkbox">
+                    <span class="checkable">Image Smoothing</span>
+                </label>
+            </div>
+            <div class="optionsBottom flexRow">
+                <button id="addImage">Add Images</button>
+                <button id="clearImages">Remove all Images</button>
+            </div>
+            <div id="colorPicker">
+                <div id="colorPickerLabel" class="flexColumn">
+                    <div>Use Transparent Color as:</div>
+                    <select id="colorUsage">
+                        <option value="key">Key</option>
+                        <option value="background">Background</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="preview">
+            <div id="previewMain">
+                <img id="previewImage" src="./initial.png"></img>
+                <div id="previewLoader">
+                    <div class="loader"></div>
+                </div>
+            </div>
+            <div class="previewInfo right">
+                <div class="flexRow">
+                    <div>Estimated size:&nbsp;</div>
+                    <div id="estimatedSize">0 KB</div>
+                </div>
+            </div>
+            <div class="previewInfo left flexRow">
+                <label><button id="downloadGif">Download</button></label>
+                <div id="warningIcon" title="Warnings"></div>
+            </div>
+        </div>
+        <div id="timeline">
+            <div id="grid"></div>
+        </div>
+    </div>
+    <div class="modal">
+        <input id="warningModal" type="checkbox" />
+        <label for="warningModal" class="overlay"></label>
+        <article id="warningModalContent">
+            <header>
+                <h3 class="text">Warnings</h3>
+                <label for="warningModal" class="close">&times;</label>
+            </header>
+            <section class="content flexColumn">
+                There were some issues detected. This might influence the quality of the gif:
+                <div id="sizeDifferencesWarning">
+                    <h4>Different image sizes</h4>
+                    <p>The images you provided have different sizes. In the merging process the images get resized by diffrent amounts. This might lead to information and quality loss.</p>
+                </div>
+                <div id="colorAmountWarning">
+                    <h4>Too much colors used</h4>
+                    <p>The images contain more than 255 colors. The gif format is limited to 256 colors and one color is reserved for internal processes. The colors get reduced by merging similar colors. You can select the merging algorithm by changing the dither option.</p>
+                </div>
+                <div id="mixedAlphaWarning">
+                    <h4>Semi transparent colors</h4>
+                    <p>The images contain pixels with semi transparent colors. This tool does not support semi transparent colors. The colors are converted to transparent or opaque. You can change the behavior by selecting the Alpha Channel Handling option. This warning might also occur due to scaling of images or the image smoothing option.</p>
+                </div>
+                <div id="missingTransparentWarning">
+                    <h4>No transparent pixels</h4>
+                    <p>You've selected the transparent color to be the transparency key. This requires atleast one transparent pixel per frame. Otherwise all colors get keyed out.</p>
+                </div>
+            </section>
+            <footer class="flexRow">
+                <div class="endContent flexRow">
+                    <label for="warningModal" class="button">Close</label>
+                </div>
+            </footer>
+        </article>
+    </div>
+    <div id="hidden"></div>
+    <github-corner
+        title="Check out the GitHub repository!"
+        href="https://github.com/H0rn0chse/GifBuilder"
+    >
+    </github-corner>
+</body>
+</html>
