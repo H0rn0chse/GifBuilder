@@ -18,18 +18,14 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: gh-pages
-          path: gh-pages
+          path: dist
 
-      - name: Clear subfolder
-        run: rm -rf gh-pages/*
-
-      - uses: H0rn0chse/gh-pages-copy-action@main
-        with:
-          root: ${{ github.workspace }}
+      - name: Build App
+        run: npm run build
 
       - name: Commit gh-pages files
         continue-on-error: true
-        working-directory: ./gh-pages
+        working-directory: ./dist
         run: |
           git config --local user.name 'github-actions[bot]'
           git config --local user.email 'github-actions[bot]@users.noreply.github.com'
@@ -42,5 +38,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          directory: ./gh-pages
+          directory: ./dist
           force: true

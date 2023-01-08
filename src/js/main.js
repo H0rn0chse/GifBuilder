@@ -1,3 +1,8 @@
+// Global Dependencies
+import "picnic/picnic.min.css";
+import "github-corner-element"
+import "../css/main.css";
+
 import { HintManager } from "./HintManager.js";
 import { initImport } from "./importFile.js";
 import { initOptions, initFileDragDrop } from "./options.js";

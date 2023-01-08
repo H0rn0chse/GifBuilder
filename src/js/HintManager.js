@@ -1,3 +1,4 @@
+import feather from "feather-icons";
 import { getColorUsage } from "./options.js";
 
 class _HintManager {

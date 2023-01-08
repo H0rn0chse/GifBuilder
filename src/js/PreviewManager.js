@@ -1,6 +1,8 @@
+import { debounce } from "lodash"
 import { HintManager } from "./HintManager.js";
 import { getQuality, getWidth, getHeight, getDither, setInputDimensions, getKeepDimensions, getFramesPerSecond, getAlphaHandling, getTransparentKeyColor, getImageSmoothing, getColorUsage } from "./options.js";
 import { TimelineManager } from "./TimelineManager.js";
+import { gifWorkerScript } from "./config";
 
 class _PreviewManager {
     constructor () {
@@ -24,7 +26,7 @@ class _PreviewManager {
             width: this.width,
             height: this.height,
             transparent: this.HEXToBinary(this.transparentKeyColor),
-            workerScript: "./libs/gif.worker.js",
+            workerScript: gifWorkerScript,
             debug: false,
         });
 
@@ -43,7 +45,7 @@ class _PreviewManager {
     }
 
     init () {
-        this.render = _.debounce(this._handleRender, 800);
+        this.render = debounce(this._handleRender, 800);
     }
 
     HEXToBinary (hexCode) {
@@ -70,7 +72,7 @@ class _PreviewManager {
     }
 
     showPlaceholder () {
-        this.imgRef.src = "./assets/initial.png";
+        this.imgRef.src = "./initial.png";
         setInputDimensions(0, 0, true);
         this.currentBlob = null;
         this._setEstimatedSize(0);

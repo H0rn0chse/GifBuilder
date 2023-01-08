@@ -1,3 +1,4 @@
+import feather from "feather-icons";
 import { Deferred } from "./Deferred.js";
 import { setInputDimensions } from "./options.js";
 import { TimelineManager } from "./TimelineManager.js";

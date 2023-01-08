@@ -9,21 +9,13 @@
     <!-- anonymized statistics-->
     <script async defer data-website-id="c6a9a186-b71f-444e-9685-062f312f3266" src="https://h0rn0chse-umami.up.railway.app/WQ4fyxmP2iMY.js"></script>
 
-    <!-- Custom Dependencies -->
-    <link rel="stylesheet" href="./libs/color-picker.min.css"/>
-    <script type="text/javascript" src="./libs/color-picker.min.js"></script>
-    <script src="./libs/gif.js"></script>
+    <!-- Static Dependencies -->
+    <link rel="stylesheet" href="./color-picker/color-picker.min.css"/>
+    <script type="text/javascript" src="./color-picker/color-picker.min.js" defer></script>
+    <script src="./gif.js/gif.js" defer></script>
+    <script src="./muuri/muuri.min.js" defer></script>
 
-    <!-- Node Dependencies -->
-    <link rel="stylesheet" href="./libs/picnic/picnic.min.css">
-    <script src="./libs/muuri/muuri.min.js" defer></script>
-    <script src="./libs/lodash/lodash.min.js" defer></script>
-    <script src="./libs/feather-icons/feather.min.js" defer></script>
-    <script type="module" src="./libs/wc-github-corners/index.es.js"></script>
-
-    <!-- Project -->
-    <link rel="stylesheet" href="styles/main.css">
-    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
 </head>
 <body>
     <div id="content">
@@ -85,14 +77,14 @@
         </div>
         <div id="preview">
             <div id="previewMain">
-                <img id="previewImage" src="./assets/initial.png"></img>
+                <img id="previewImage" src="./initial.png"></img>
                 <div id="previewLoader">
                     <div class="loader"></div>
                 </div>
             </div>
             <div class="previewInfo right">
                 <div class="flexRow">
-                    <div>Estimated size:&nbsp</div>
+                    <div>Estimated size:&nbsp;</div>
                     <div id="estimatedSize">0 KB</div>
                 </div>
             </div>
@@ -140,11 +132,10 @@
         </article>
     </div>
     <div id="hidden"></div>
-    <github-corners
-        label="Check out the GitHub repository!"
-        repo="H0rn0chse/GifBuilder"
-        blank="true"
+    <github-corner
+        title="Check out the GitHub repository!"
+        href="https://github.com/H0rn0chse/GifBuilder"
     >
-    </github-corners>
+    </github-corner>
 </body>
 </html>

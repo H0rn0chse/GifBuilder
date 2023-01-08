@@ -40,4 +40,4 @@ The effect of the color depends on the selected option. Frames containing no tra
  * Grid: [github.com/haltu/muuri](https://github.com/haltu/muuri)
  * CSS: [github.com/franciscop/picnic](https://github.com/franciscop/picnic)
  * Icons: [github.com/feathericons/feather](https://github.com/feathericons/feather)
- * Github-Corner: [github.com/remarkablemark/github-corners](https://github.com/remarkablemark/github-corners)
+ * Github-Corner: [github.com/YuskaWu/github-corner-element](https://github.com/YuskaWu/github-corner-element)
